@@ -1,26 +1,105 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --paper: #f0efe4;
+  --paper-subtle: #e8e7da;
+  --ink: #1a1a18;
+  --ink-muted: #6b6b65;
+  --ink-faint: #a8a89f;
+  --surface: #ffffff;
+  --glass-bg: rgba(240, 239, 228, 0.76);
+  --glass-bdr: rgba(26, 26, 24, 0.12);
+  --accent: #ff6b2b;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --paper: #0e0e0c;
+    --paper-subtle: #161614;
+    --ink: #ebebdf;
+    --ink-muted: #8c8c82;
+    --ink-faint: #4a4a44;
+    --surface: #1a1a16;
+    --glass-bg: rgba(14, 14, 12, 0.78);
+    --glass-bdr: rgba(235, 235, 223, 0.12);
+    --accent: #ff7a3d;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  min-height: 100vh;
 }
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* High-performance header theme transition (zero-re-render) */
+.nav-pill-container {
+  will-change: background-color, border-color, color, box-shadow;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.nav-dark .nav-pill-container {
+  border-color: rgba(0, 0, 0, 0.28) !important;
+  background-color: rgba(240, 239, 228, 0.85) !important;
+  color: #000000 !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08) !important;
+}
+
+.nav-dark .nav-text-primary {
+  color: #000000 !important;
+}
+
+.nav-dark .nav-text-secondary {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.nav-dark .nav-text-secondary:hover {
+  color: #000000 !important;
+}
+
+.nav-dark .nav-sliding-pill {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+}
+
+.nav-dark .nav-search-input {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.25) !important;
+  color: #000000 !important;
+}
+
+.nav-dark .nav-search-input::placeholder {
+  color: rgba(0, 0, 0, 0.45) !important;
+}
+
+.nav-dark .nav-search-icon {
+  color: rgba(0, 0, 0, 0.5) !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.nav-dark .nav-search-kbd {
+  color: rgba(0, 0, 0, 0.5) !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.nav-dark .nav-signin-btn {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
+}
+
